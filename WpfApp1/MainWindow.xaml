@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600" Closing="Window_Closing">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+
+        <WrapPanel Orientation="Horizontal" Grid.Row="1"
+                       Grid.Column="0" Margin="20 0" Height="80" Width="auto" Background="AliceBlue">
+            <Button x:Name="Add" Content="Add" Margin="10 10 10 0" Height="40" Width="120" Click="Add_Click" />
+            <Button x:Name="UpdateBoard" Content="Update" Margin="10 10 10 0" Height="40" Width="120" Click="Update_Click"/>
+            <Button x:Name="Clone" Content="Clone"  Margin="10 10 10 0" Height="40" Width="120" Click="Clone_Click"/>
+            <Button x:Name="Delete" Content="Delete"  Margin="10 10 10 0" Height="40" Width="120" Click="Delete_Click"/>
+
+        </WrapPanel>
+        <DataGrid x:Name="StaffDataGrid" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Margin="10,10,0,0" VerticalAlignment="Top" Width="auto" AutoGenerateColumns="False"
+                  AlternatingRowBackground="Coral" IsReadOnly="True" SelectionChanged="StaffDataGrid_SelectionChanged" >
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" x:Name="Id" Width="100" Header="Id" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="FirstName" Binding="{Binding FirstName}" Width="150" Header="First Name"/>
+                <DataGridTextColumn Binding="{Binding LastName}" Width="150" Header="Last Name"/>
+                <DataGridTextColumn Binding="{Binding Gender}" Width="150" Header="Gender"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
